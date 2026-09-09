@@ -126,19 +126,60 @@ export const projects = [
 
 export const certifications = [
   {
-    title: "Full Stack Web Development (Internship)",
-    issuer: "Decode Lab Tech",
+    title: "Certificate of Def-Space Programme 2026",
+    issuer: "Bharat Space Education Research Centre (BSERC)",
+    subIssuer: "Skill India · ISRO Ecosystem",
+    period: "June 19 to August 9, 2026",
     year: "2026",
+    credentialId: "BSERC-DSI-2026-1611",
+    description:
+      "Def Space Summer Internship Programme 2026 under the theme 'Responsible Innovation for Inclusive Growth', covering comprehensive exposure to Defence and Space technologies.",
+    image: "/certificates/defspace-bserc-certificate.jpg",
+    pdf: "/certificates/defspace-bserc-certificate.pdf",
+    tags: ["Defence Tech", "Space Technologies", "AI Threat Intel", "Research"],
+    featured: true,
   },
   {
-    title: "Python and Java",
+    title: "Virtual Internship — Full Stack Development",
+    issuer: "DecodeLabs",
+    subIssuer: "Global Internship Credential",
+    period: "June 15, 2026 — July 15, 2026",
+    year: "2026",
+    credentialId: "FSD073559",
+    description:
+      "Successfully completed the DecodeLabs Virtual Internship Program in Full Stack development, demonstrating hands-on problem-solving skills across real-world projects and collaborative development.",
+    image: "/certificates/decodelabs-certificate.jpg",
+    pdf: "/certificates/decodelabs-certificate.pdf",
+    tags: ["Full Stack", "Web Development", "Software Engineering"],
+    featured: true,
+  },
+  {
+    title: "Python and Java Programming",
     issuer: "Infosys Springboard",
-    year: "",
+    subIssuer: "Enterprise Learning Certification",
+    period: "",
+    year: "2025",
+    credentialId: "Verified",
+    description:
+      "Comprehensive programming certification covering Object-Oriented Programming (OOP), data structures, algorithms, and practical application building in Python and Java.",
+    image: null,
+    pdf: null,
+    tags: ["Python", "Java", "OOP", "Data Structures"],
+    featured: false,
   },
   {
-    title: "IoT",
+    title: "Internet of Things (IoT)",
     issuer: "NPTEL",
-    year: "",
+    subIssuer: "National Programme on Technology Enhanced Learning",
+    period: "",
+    year: "2025",
+    credentialId: "Verified",
+    description:
+      "Certification in IoT architectures, embedded sensors, wireless network protocols, edge computing, and real-time sensor data telemetry.",
+    image: null,
+    pdf: null,
+    tags: ["IoT", "Embedded Systems", "Sensors", "Networking"],
+    featured: false,
   },
 ];
 
