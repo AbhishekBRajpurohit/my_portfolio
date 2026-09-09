@@ -79,7 +79,7 @@ export const projects = [
     tech: ["Python", "scikit-learn", "pandas", "NumPy", "Streamlit", "Plotly", "Folium"],
     github:
       "https://github.com/AbhishekBRajpurohit/ai_military_threatintelligence",
-    image: null,
+    image: "/projects/threat-intelligence.jpg",
   },
   {
     title: "NyayBot AI (Frontend)",
@@ -95,7 +95,7 @@ export const projects = [
       "Backend API powering NyayBot AI — handles FIR analysis, bail-probability prediction, and lawyer-matching logic for the multilingual legal assistant. Built on the PERN stack.",
     tech: ["Node.js", "Express.js", "PostgreSQL"],
     github: "https://github.com/AbhishekBRajpurohit/nyaybot-backend",
-    image: null,
+    image: "/projects/nyaybot-backend.jpg",
   },
   {
     title: "Real-Time Network Intrusion Detection",
@@ -120,7 +120,7 @@ export const projects = [
       "Decentralized note-keeping app deployed on the Internet Computer blockchain with censorship-resistant, tamper-proof storage. Backend canister in Motoko enables on-chain CRUD operations. React frontend integrates via DFX framework.",
     tech: ["Motoko", "React", "ICP/DFX", "Internet Computer"],
     github: "https://github.com/AbhishekBRajpurohit/dkeeper-icp",
-    image: null,
+    image: "/projects/dkeeper-icp.jpg",
   },
 ];
 
