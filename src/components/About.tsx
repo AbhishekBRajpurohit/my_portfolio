@@ -21,7 +21,7 @@ export default function About() {
               <span className="text-foreground font-medium">
                 Dayananda Sagar College of Engineering, Bangalore
               </span>{" "}
-              (2024-2028, currently 5th semester).
+              (2024–2028, currently 5th semester).
             </p>
             <p className="mt-4 text-muted leading-relaxed text-base md:text-lg">
               I&apos;m passionate about{" "}

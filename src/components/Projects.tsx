@@ -5,7 +5,7 @@ import Image from "next/image";
 import AnimateOnScroll from "./AnimateOnScroll";
 import SectionHeading from "./SectionHeading";
 import { projects } from "@/data/content";
-import { ExternalLink, Eye, X } from "lucide-react";
+import { ExternalLink, Eye, X, Terminal, Code2 } from "lucide-react";
 import { GithubIcon } from "./Icons";
 
 type ProjectItem = (typeof projects)[number];
@@ -32,103 +32,118 @@ export default function Projects() {
   }, [selectedProject]);
 
   return (
-    <section id="projects" className="section-padding bg-card-bg/30 relative">
+    <section id="projects" className="section-padding bg-card-bg/20 relative">
       <div className="max-w-6xl mx-auto">
         <SectionHeading
           title="Featured Projects"
-          subtitle="Real-world defense systems, legal tech assistants, network monitoring, and blockchain applications"
+          subtitle="Full-stack applications, machine learning pipelines, and decentralized systems"
         />
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, i) => (
             <AnimateOnScroll key={project.title} delay={i * 0.08}>
-              <div className="group flex flex-col h-full rounded-2xl bg-card-bg border border-card-border hover:border-accent/50 transition-all duration-300 overflow-hidden hover:shadow-[0_0_30px_rgba(245,197,24,0.12)]">
-                {/* Image / visual screenshot */}
-                <div
-                  onClick={() => project.image && setSelectedProject(project)}
-                  className="relative h-48 sm:h-52 bg-[#080808] overflow-hidden cursor-pointer border-b border-card-border"
-                >
-                  {project.image ? (
-                    <>
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                      {/* Hover overlay */}
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[1px]">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent text-black font-semibold text-xs shadow-lg">
-                          <Eye size={14} /> Preview UI
-                        </span>
-                      </div>
-                    </>
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center dot-grid">
-                      <span className="font-mono text-accent/40 text-3xl font-bold">
-                        {project.title
-                          .split(" ")
-                          .map((w) => w[0])
-                          .join("")}
+              <div className="group flex flex-col h-full rounded-xl bg-card-bg border border-card-border hover:border-accent/40 transition-all duration-200 overflow-hidden">
+                {/* Visual Area: Real Screenshot or Developer Terminal */}
+                {project.image ? (
+                  <div
+                    onClick={() => setSelectedProject(project)}
+                    className="relative h-48 bg-[#090909] overflow-hidden cursor-pointer border-b border-card-border"
+                  >
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover object-top group-hover:scale-[1.02] transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-accent text-black font-semibold text-xs">
+                        <Eye size={13} /> View Screenshot
                       </span>
                     </div>
-                  )}
-                </div>
+                  </div>
+                ) : (
+                  <div className="relative h-48 bg-[#0d0d0d] p-4 flex flex-col justify-between border-b border-card-border font-mono text-xs select-none">
+                    {/* Terminal Header */}
+                    <div className="flex items-center justify-between pb-2 border-b border-white/5">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+                      </div>
+                      <span className="text-[11px] text-muted/70 flex items-center gap-1">
+                        <Terminal size={11} /> {project.fileLabel || "source"}
+                      </span>
+                    </div>
 
-                {/* Content */}
-                <div className="flex flex-col flex-1 p-6">
-                  <h3 className="text-lg font-bold text-foreground group-hover:text-accent transition-colors">
+                    {/* Code Snippet Body */}
+                    <pre className="text-[11px] leading-relaxed text-foreground/80 overflow-hidden line-clamp-5 my-auto font-mono whitespace-pre-wrap">
+                      <code>{project.snippet}</code>
+                    </pre>
+
+                    {/* Tech tag bottom */}
+                    <div className="pt-2 border-t border-white/5 flex items-center justify-between text-[10px] text-muted">
+                      <span className="flex items-center gap-1 text-accent/80 font-mono">
+                        <Code2 size={11} /> Core Implementation
+                      </span>
+                      <span className="text-muted/60">{project.tech[0]}</span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Card Content */}
+                <div className="flex flex-col flex-1 p-5">
+                  <h3 className="text-base font-bold text-foreground group-hover:text-accent transition-colors">
                     {project.title}
                   </h3>
-                  <p className="mt-3 text-muted text-sm leading-relaxed flex-1">
+                  <p className="mt-2 text-muted text-xs leading-relaxed flex-1">
                     {project.description}
                   </p>
 
-                  {/* Tech pills */}
+                  {/* Tech stack pills */}
                   <div className="mt-4 flex flex-wrap gap-1.5">
                     {project.tech.map((t) => (
                       <span
                         key={t}
-                        className="px-2.5 py-1 text-xs font-mono rounded-md bg-white/5 text-muted border border-white/5"
+                        className="px-2 py-0.5 text-[11px] font-mono rounded bg-white/5 text-muted border border-white/5"
                       >
                         {t}
                       </span>
                     ))}
                   </div>
 
-                  {/* Links */}
-                  <div className="mt-5 pt-4 border-t border-card-border flex items-center gap-3">
+                  {/* Actions */}
+                  <div className="mt-5 pt-3.5 border-t border-card-border flex items-center justify-between text-xs">
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-muted hover:text-accent transition-colors"
+                      className="inline-flex items-center gap-1.5 text-muted hover:text-accent transition-colors font-mono"
                     >
-                      <GithubIcon size={16} />
-                      Source Code
+                      <GithubIcon size={14} />
+                      <span>GitHub</span>
                     </a>
-                    {project.image && (
-                      <button
-                        onClick={() => setSelectedProject(project)}
-                        className="ml-auto inline-flex items-center gap-1 text-xs text-muted hover:text-accent transition-colors"
-                        aria-label={`Preview ${project.title} screenshot`}
+
+                    <div className="flex items-center gap-2">
+                      {project.image && (
+                        <button
+                          onClick={() => setSelectedProject(project)}
+                          className="inline-flex items-center gap-1 text-muted hover:text-accent transition-colors"
+                        >
+                          <Eye size={13} />
+                          <span>Preview</span>
+                        </button>
+                      )}
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted hover:text-accent transition-colors p-1"
+                        aria-label={`Open ${project.title} repository`}
                       >
-                        <Eye size={14} />
-                        Preview
-                      </button>
-                    )}
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${
-                        project.image ? "" : "ml-auto"
-                      } text-muted hover:text-accent transition-colors p-1`}
-                      aria-label={`View ${project.title} on GitHub`}
-                    >
-                      <ExternalLink size={16} />
-                    </a>
+                        <ExternalLink size={14} />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -137,27 +152,27 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Fullscreen Screenshot Modal */}
+      {/* Screenshot Lightbox Modal (for real project images) */}
       {selectedProject && selectedProject.image && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="relative w-full max-w-5xl max-h-[90vh] bg-card-bg rounded-2xl border border-card-border overflow-hidden flex flex-col shadow-2xl"
+            className="relative w-full max-w-4xl max-h-[90vh] bg-card-bg rounded-xl border border-card-border overflow-hidden flex flex-col shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-card-border bg-[#0d0d0d]">
+            {/* Header */}
+            <div className="flex items-center justify-between px-5 py-3.5 border-b border-card-border bg-[#0a0a0a]">
               <div>
-                <h3 className="text-base sm:text-lg font-bold text-foreground">
+                <h3 className="text-sm sm:text-base font-bold text-foreground">
                   {selectedProject.title}
                 </h3>
-                <div className="flex flex-wrap gap-1.5 mt-1.5">
+                <div className="flex flex-wrap gap-1.5 mt-1">
                   {selectedProject.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-2 py-0.5 text-[11px] font-mono rounded bg-white/5 text-muted"
+                      className="px-1.5 py-0.5 text-[10px] font-mono rounded bg-white/5 text-muted"
                     >
                       {t}
                     </span>
@@ -166,44 +181,44 @@ export default function Projects() {
               </div>
               <button
                 onClick={() => setSelectedProject(null)}
-                className="p-2 rounded-lg text-muted hover:text-foreground hover:bg-white/5 transition-colors"
-                aria-label="Close screenshot preview"
+                className="p-1.5 rounded-lg text-muted hover:text-foreground hover:bg-white/5 transition-colors"
+                aria-label="Close modal"
               >
-                <X size={20} />
+                <X size={18} />
               </button>
             </div>
 
-            {/* Modal Image */}
-            <div className="relative flex-1 overflow-auto p-4 sm:p-6 bg-[#050505] flex items-center justify-center min-h-[350px]">
-              <div className="relative w-full aspect-[16/9] max-h-[68vh] shadow-2xl rounded-lg overflow-hidden border border-white/10">
+            {/* Image Preview */}
+            <div className="relative flex-1 overflow-auto p-4 bg-[#050505] flex items-center justify-center min-h-[300px]">
+              <div className="relative w-full aspect-[16/9] max-h-[65vh] rounded-lg overflow-hidden border border-white/10">
                 <Image
                   src={selectedProject.image}
                   alt={selectedProject.title}
                   fill
                   className="object-contain"
                   priority
-                  sizes="(max-width: 1280px) 100vw, 1024px"
+                  sizes="(max-width: 1024px) 100vw, 896px"
                 />
               </div>
             </div>
 
-            {/* Modal Footer */}
-            <div className="flex flex-wrap items-center justify-between gap-4 px-6 py-4 border-t border-card-border bg-[#0d0d0d]">
-              <p className="text-xs text-muted max-w-xl line-clamp-2">
+            {/* Footer */}
+            <div className="flex items-center justify-between px-5 py-3 border-t border-card-border bg-[#0a0a0a]">
+              <p className="text-xs text-muted max-w-md line-clamp-1">
                 {selectedProject.description}
               </p>
-              <div className="flex items-center gap-3 ml-auto">
+              <div className="flex items-center gap-3">
                 <a
                   href={selectedProject.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent text-black font-semibold text-xs hover:bg-accent/90 transition-all hover:shadow-[0_0_20px_rgba(245,197,24,0.3)]"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-accent text-black font-semibold text-xs hover:bg-accent/90 transition-colors"
                 >
-                  <GithubIcon size={14} /> View on GitHub
+                  <GithubIcon size={13} /> View on GitHub
                 </a>
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-xs text-foreground font-medium transition-colors"
+                  className="px-3 py-1.5 rounded-md bg-white/5 hover:bg-white/10 text-xs text-foreground font-medium transition-colors"
                 >
                   Close
                 </button>
