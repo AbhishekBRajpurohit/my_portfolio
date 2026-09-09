@@ -15,13 +15,13 @@ export default function About() {
             <p className="text-muted leading-relaxed text-base md:text-lg">
               I&apos;m a <span className="text-foreground font-medium">3rd-year BE student</span> in{" "}
               <span className="text-foreground font-medium">
-                Computer Science — IoT &amp; Cybersecurity
+                Computer Science - IoT &amp; Cybersecurity
               </span>{" "}
               (including Blockchain Technology) at{" "}
               <span className="text-foreground font-medium">
                 Dayananda Sagar College of Engineering, Bangalore
               </span>{" "}
-              (2024–2028, currently 5th semester).
+              (2024-2028, currently 5th semester).
             </p>
             <p className="mt-4 text-muted leading-relaxed text-base md:text-lg">
               I&apos;m passionate about{" "}
@@ -31,7 +31,7 @@ export default function About() {
               <span className="text-accent font-medium">
                 defense, legal, and security
               </span>{" "}
-              problems. I love building end-to-end systems — from training ML
+              problems. I love building end-to-end systems - from training ML
               models and crafting APIs to shipping polished, responsive frontends.
             </p>
           </div>
