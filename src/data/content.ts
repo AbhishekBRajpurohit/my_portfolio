@@ -79,15 +79,7 @@ export const projects = [
     tech: ["Python", "scikit-learn", "pandas", "NumPy", "Streamlit", "Plotly", "Folium"],
     github:
       "https://github.com/AbhishekBRajpurohit/ai_military_threatintelligence",
-    image: null,
-    fileLabel: "threat_classifier.py",
-    snippet: `# ML Pipeline · Defspace (BSERC)
-from sklearn.ensemble import RandomForestClassifier
-
-model = RandomForestClassifier(n_estimators=100)
-model.fit(X_sensor_data, y_threat_levels)
-level = model.predict(current_telemetry)
-# Live Streamlit & Folium Map integration`,
+    image: "/projects/threat-intelligence.jpg",
   },
   {
     title: "NyayBot AI (Frontend)",
@@ -96,8 +88,6 @@ level = model.predict(current_telemetry)
     tech: ["React", "Tailwind CSS"],
     github: "https://github.com/AbhishekBRajpurohit/nyaybot-frontend",
     image: "/projects/nyaybot.jpg",
-    fileLabel: null,
-    snippet: null,
   },
   {
     title: "NyayBot AI (Backend)",
@@ -105,15 +95,7 @@ level = model.predict(current_telemetry)
       "Backend REST API powering NyayBot AI — handles FIR analysis, bail-probability prediction, and lawyer-matching logic for the multilingual legal assistant. Built on the PERN stack with PostgreSQL.",
     tech: ["Node.js", "Express.js", "PostgreSQL"],
     github: "https://github.com/AbhishekBRajpurohit/nyaybot-backend",
-    image: null,
-    fileLabel: "routes/firAnalysis.ts",
-    snippet: `// REST API · PERN Stack Architecture
-app.post("/api/v1/fir/analyze", async (req, res) => {
-  const { firText, language } = req.body;
-  const analysis = await runLegalAnalysis(firText);
-  const bailProb = await predictBailScore(analysis);
-  res.json({ status: 200, analysis, bailProb });
-});`,
+    image: "/projects/nyaybot-backend.jpg",
   },
   {
     title: "Real-Time Network Intrusion Detection",
@@ -123,8 +105,6 @@ app.post("/api/v1/fir/analyze", async (req, res) => {
     github:
       "https://github.com/AbhishekBRajpurohit/network_intrusion_detection_system",
     image: "/projects/nids.jpg",
-    fileLabel: null,
-    snippet: null,
   },
   {
     title: "VoiceGuard AI Defense",
@@ -133,8 +113,6 @@ app.post("/api/v1/fir/analyze", async (req, res) => {
     tech: ["Python", "Machine Learning", "Audio Processing"],
     github: "https://github.com/AbhishekBRajpurohit/voiceguard-ai-defense",
     image: "/projects/voiceguard.jpg",
-    fileLabel: null,
-    snippet: null,
   },
   {
     title: "dKeeper ICP",
@@ -142,17 +120,7 @@ app.post("/api/v1/fir/analyze", async (req, res) => {
       "Decentralized note-keeping app deployed on the Internet Computer blockchain with censorship-resistant, tamper-proof storage. Backend canister in Motoko enables on-chain CRUD operations with no centralized database.",
     tech: ["Motoko", "React", "ICP/DFX", "Internet Computer"],
     github: "https://github.com/AbhishekBRajpurohit/dkeeper-icp",
-    image: null,
-    fileLabel: "canister/main.mo",
-    snippet: `// Internet Computer (ICP) Motoko Canister
-import HashMap "mo:base/HashMap";
-
-actor DKeeper {
-  public shared func createNote(title: Text, body: Text) : async Nat {
-    // Encrypted on-chain persistent storage
-    return noteId;
-  };
-};`,
+    image: "/projects/dkeeper-icp.jpg",
   },
 ];
 

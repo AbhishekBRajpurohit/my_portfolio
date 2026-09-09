@@ -5,7 +5,7 @@ import Image from "next/image";
 import AnimateOnScroll from "./AnimateOnScroll";
 import SectionHeading from "./SectionHeading";
 import { projects } from "@/data/content";
-import { ExternalLink, Eye, X, Terminal, Code2 } from "lucide-react";
+import { ExternalLink, Eye, X } from "lucide-react";
 import { GithubIcon } from "./Icons";
 
 type ProjectItem = (typeof projects)[number];
@@ -63,31 +63,10 @@ export default function Projects() {
                     </div>
                   </div>
                 ) : (
-                  <div className="relative h-48 bg-[#0d0d0d] p-4 flex flex-col justify-between border-b border-card-border font-mono text-xs select-none">
-                    {/* Terminal Header */}
-                    <div className="flex items-center justify-between pb-2 border-b border-white/5">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-                      </div>
-                      <span className="text-[11px] text-muted/70 flex items-center gap-1">
-                        <Terminal size={11} /> {project.fileLabel || "source"}
-                      </span>
-                    </div>
-
-                    {/* Code Snippet Body */}
-                    <pre className="text-[11px] leading-relaxed text-foreground/80 overflow-hidden line-clamp-5 my-auto font-mono whitespace-pre-wrap">
-                      <code>{project.snippet}</code>
-                    </pre>
-
-                    {/* Tech tag bottom */}
-                    <div className="pt-2 border-t border-white/5 flex items-center justify-between text-[10px] text-muted">
-                      <span className="flex items-center gap-1 text-accent/80 font-mono">
-                        <Code2 size={11} /> Core Implementation
-                      </span>
-                      <span className="text-muted/60">{project.tech[0]}</span>
-                    </div>
+                  <div className="relative h-48 bg-[#090909] flex items-center justify-center border-b border-card-border">
+                    <span className="font-mono text-accent/50 text-2xl font-bold">
+                      {project.title.slice(0, 3)}
+                    </span>
                   </div>
                 )}
 
