@@ -6,11 +6,11 @@ export default function Footer() {
   return (
     <footer className="border-t border-card-border py-8 px-6">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-muted text-sm flex items-center gap-1.5">
+        {/* <p className="text-muted text-sm flex items-center gap-1.5">
           &copy; {new Date().getFullYear()} {siteConfig.name}. Built with{" "}
           <Heart size={14} className="text-accent" fill="currentColor" /> and
           Next.js
-        </p>
+        </p> */}
 
         <div className="flex items-center gap-4">
           <a
